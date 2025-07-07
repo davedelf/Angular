@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { EncabezadoComponent } from "./encabezado.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, EncabezadoComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
