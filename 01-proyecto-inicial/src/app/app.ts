@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EncabezadoComponent } from "./encabezado.component";
+import { EncabezadoComponent } from "./encabezado/encabezado.component";
 
 @Component({
   selector: 'app-root',
