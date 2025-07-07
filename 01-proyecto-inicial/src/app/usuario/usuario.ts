@@ -11,5 +11,8 @@ const indiceAleatorio=Math.floor(Math.random()*USUARIOS_FALSOS.length)
 
 //Añadimos cuerpo a la clase del componente
 export class Usuario {
-  usuarioSeleccionado=USUARIOS_FALSOS[indiceAleatorio]
+  usuarioSeleccionado=USUARIOS_FALSOS[indiceAleatorio];
+  get rutaImagen(){
+    return this.usuarioSeleccionado.avatar;
+  }
 }
