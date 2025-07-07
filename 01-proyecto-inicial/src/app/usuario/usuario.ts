@@ -17,6 +17,7 @@ export class Usuario {
   }
 
   alSeleccionarUsuario(){
-    console.log("¡Clickeado!")
+    const indiceAleatorio=Math.floor(Math.random()*USUARIOS_FALSOS.length);
+    this.usuarioSeleccionado=USUARIOS_FALSOS[indiceAleatorio];
   }
 }
