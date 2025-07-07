@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { USUARIOS_FALSOS } from '../usuarios-falsos';
+const indiceAleatorio=Math.floor(Math.random()*USUARIOS_FALSOS.length)
 
 @Component({
   selector: 'app-usuario',
@@ -6,6 +8,8 @@ import { Component } from '@angular/core';
   templateUrl: './usuario.html',
   styleUrl: './usuario.css'
 })
-export class Usuario {
 
+//Añadimos cuerpo a la clase del componente
+export class Usuario {
+  usuarioSeleccionado=USUARIOS_FALSOS[indiceAleatorio]
 }
