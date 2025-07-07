@@ -15,4 +15,8 @@ export class Usuario {
   get rutaImagen(){
     return this.usuarioSeleccionado.avatar;
   }
+
+  alSeleccionarUsuario(){
+    console.log("¡Clickeado!")
+  }
 }
