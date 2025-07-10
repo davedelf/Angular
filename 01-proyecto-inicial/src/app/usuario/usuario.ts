@@ -12,8 +12,8 @@ export class Usuario {
   @Input({ required: true }) id!: string;
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) nombre!: string;
-  /*   @Output() seleccion = new EventEmitter(); //emite una acción */
-  seleccion = output<string>(); //es un reemplazo al uso tradicional del decorador @Output
+    @Output() seleccion = new EventEmitter(); //emite una acción
+
   get rutaImagen() {
     return this.avatar;
   }
