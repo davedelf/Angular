@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tareas.css',
 })
 export class Tareas {
-  @Input({ required: true }) nombre!: string;
+  @Input() nombre?: string;
 }

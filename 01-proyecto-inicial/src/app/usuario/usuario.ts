@@ -9,16 +9,20 @@ import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 
 //Añadimos cuerpo a la clase del componente
 export class Usuario {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) nombre!: string;
+  @Input({required:true}) usuario!:{
+    id:string;
+    nombre:string;
+    avatar:string;
+  };
+
+
   @Output() seleccion = new EventEmitter<string>();
 
   get rutaImagen() {
-    return this.avatar;
+    return this.usuario.avatar;
   }
 
   alSeleccionarUsuario() {
-    this.seleccion.emit(this.id);
+    this.seleccion.emit(this.usuario.id);
   }
 }
