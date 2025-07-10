@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { EncabezadoComponent } from "./encabezado/encabezado.component";
-import { Usuario } from "./usuario/usuario";
+import { UsuarioComponent } from "./usuario/usuario";
 import { USUARIOS_FALSOS } from './usuarios-falsos';
 import { Tareas } from "./tareas/tareas";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, EncabezadoComponent, Usuario, Tareas],
+  imports: [EncabezadoComponent, UsuarioComponent, Tareas],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

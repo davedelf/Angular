@@ -1,20 +1,30 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 
+//Usando un tipo de objeto utilizando interface. Puede definir solo tipos de objetos, pero no tipos de valores.
+interface Usuario {
+  id: string;
+  avatar: string;
+  nombre: string;
+}
+
+//Usando type. Puede, además de generar tipo de objetos, tipos de valores.
+
+/* type Usuario = {
+  id: string;
+  avatar: string;
+  nombre: string;
+}; */
+
+//Discusión: Evaluar su contexto para ver si utilzar interface o type.
+
 @Component({
   selector: 'app-usuario',
   standalone: true,
   templateUrl: './usuario.html',
   styleUrl: './usuario.css',
 })
-
-//Añadimos cuerpo a la clase del componente
-export class Usuario {
-  @Input({required:true}) usuario!:{
-    id:string;
-    nombre:string;
-    avatar:string;
-  };
-
+export class UsuarioComponent {
+  @Input({ required: true }) usuario!: Usuario;
 
   @Output() seleccion = new EventEmitter<string>();
 
