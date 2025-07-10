@@ -1,11 +1,4 @@
-import {
-  Component,
-  computed,
-  EventEmitter,
-  Input,
-  input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 
 @Component({
   selector: 'app-usuario',
@@ -16,10 +9,11 @@ import {
 
 //Añadimos cuerpo a la clase del componente
 export class Usuario {
-  @Input({required:true}) id!:string;
+  @Input({ required: true }) id!: string;
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) nombre!: string;
-  @Output() seleccion = new EventEmitter(); //emite una acción
+  /*   @Output() seleccion = new EventEmitter(); //emite una acción */
+  seleccion = output<string>(); //es un reemplazo al uso tradicional del decorador @Output
   get rutaImagen() {
     return this.avatar;
   }
