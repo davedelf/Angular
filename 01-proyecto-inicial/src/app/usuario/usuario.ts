@@ -9,8 +9,8 @@ import { Component,Input } from '@angular/core';
 
 //Añadimos cuerpo a la clase del componente
 export class Usuario {
-  @Input() avatar!: string;
-  @Input() nombre!:string;
+  @Input({required:true}) avatar!: string;
+  @Input({required:true}) nombre!:string;
 
   get rutaImagen(){
     return this.avatar;
