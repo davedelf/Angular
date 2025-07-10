@@ -13,4 +13,8 @@ import { USUARIOS_FALSOS } from './usuarios-falsos';
 export class App {
   protected title = '01-proyecto-inicial';
   usuarios=USUARIOS_FALSOS;
+
+  alSeleccionarUsuario(id:string){
+    console.log("Usuario seleccionado con el ID: "+id);
+  }
 }

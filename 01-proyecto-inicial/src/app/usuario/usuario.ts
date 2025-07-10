@@ -1,4 +1,11 @@
-import { Component, computed, Input, input } from '@angular/core';
+import {
+  Component,
+  computed,
+  EventEmitter,
+  Input,
+  input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-usuario',
@@ -9,12 +16,15 @@ import { Component, computed, Input, input } from '@angular/core';
 
 //Añadimos cuerpo a la clase del componente
 export class Usuario {
+  @Input({required:true}) id!:string;
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) nombre!: string;
-
+  @Output() seleccion = new EventEmitter(); //emite una acción
   get rutaImagen() {
     return this.avatar;
   }
 
-  alSeleccionarUsuario() {}
+  alSeleccionarUsuario() {
+    this.seleccion.emit(this.id);
+  }
 }
