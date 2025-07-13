@@ -1,18 +1,13 @@
 <app-encabezado />
 <main>
     <ul id="usuarios">
+
+        @for(usuario of usuarios;track usuario.id){
         <li>
-            <app-usuario [usuario]="usuarios[0]" (seleccion)="alSeleccionarUsuario($event)" />
+            <app-usuario [usuario]="usuario" (seleccion)="alSeleccionarUsuario($event)" />
         </li>
-        <li>
-            <app-usuario [usuario]="usuarios[1]" (seleccion)="alSeleccionarUsuario($event)" />
-        </li>
-        <li>
-            <app-usuario [usuario]="usuarios[2]" (seleccion)="alSeleccionarUsuario($event)" />
-        </li>
-        <li>
-            <app-usuario [usuario]="usuarios[3]" (seleccion)="alSeleccionarUsuario($event)" />
-        </li>
+        }
+
     </ul>
     <app-tareas [nombre]="usuarioSeleccionado.nombre" />
 
