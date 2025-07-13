@@ -2,20 +2,25 @@
 <main>
     <ul id="usuarios">
 
+        @for(usuario of usuarios;track usuario.id){
+        <li>
 
-        <li *ngFor="let usuario of usuarios">
             <app-usuario [usuario]="usuario" (seleccion)="alSeleccionarUsuario($event)" />
         </li>
 
+        }
 
     </ul>
 
-    <app-tareas *ngIf="usuarioSeleccionado; else textoCondicional" [nombre]="usuarioSeleccionado!.nombre" />
+    @if(usuarioSeleccionado){
 
-    <ng-template #textoCondicional>
+    <app-tareas [nombre]="usuarioSeleccionado.nombre" />
+    }
 
-        <p id="textoCondicional">Selecciona un usuario de la lista</p>
-    </ng-template>
+    @else{
+
+    <p id="textoCondicional">Selecciona un usuario de la lista</p>
+    }
 
 
 </main>

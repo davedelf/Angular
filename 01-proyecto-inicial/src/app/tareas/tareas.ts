@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { Tarea } from "../tarea/tarea";
 
 @Component({
   selector: 'app-tareas',
   standalone: true,
-  imports: [],
+  imports: [Tarea],
   templateUrl: './tareas.html',
   styleUrl: './tareas.css',
 })
