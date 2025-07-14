@@ -1,21 +1,7 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
+import { type Usuario } from './usuario.model';
 
-//Usando un tipo de objeto utilizando interface. Puede definir solo tipos de objetos, pero no tipos de valores.
-interface Usuario {
-  id: string;
-  avatar: string;
-  nombre: string;
-}
 
-//Usando type. Puede, además de generar tipo de objetos, tipos de valores.
-
-/* type Usuario = {
-  id: string;
-  avatar: string;
-  nombre: string;
-}; */
-
-//Discusión: Evaluar su contexto para ver si utilzar interface o type.
 
 @Component({
   selector: 'app-usuario',
