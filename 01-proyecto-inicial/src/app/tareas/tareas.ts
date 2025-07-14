@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { Tarea } from '../tarea/tarea';
+import { TareaComponent } from '../tarea/tarea';
 
 @Component({
   selector: 'app-tareas',
   standalone: true,
-  imports: [Tarea],
+  imports: [TareaComponent],
   templateUrl: './tareas.html',
   styleUrl: './tareas.css',
 })
@@ -38,7 +38,6 @@ export class Tareas {
     },
   ];
 
-  get tareasUsuarioSeleccionado() {
-    return this.tareas.filter((tarea) => tarea.idUsuario == this.idUsuario);
-  }
+  get tareasUsuarioSeleccionado(){
+    return this.tareas.filter((tarea)=>tarea.idUsuario==this.idUsuario)  }
 }
