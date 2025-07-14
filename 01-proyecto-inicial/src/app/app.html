@@ -14,7 +14,9 @@
 
     @if(usuarioSeleccionado){
 
-    <app-tareas [nombre]="usuarioSeleccionado.nombre" />
+    <app-tareas 
+    [idUsuario]="usuarioSeleccionado.id"
+    [nombre]="usuarioSeleccionado.nombre" />
     }
 
     @else{

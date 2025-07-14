@@ -10,16 +10,14 @@
             </button>
         </menu>
     </header>
+
     <ul>
+        @for(tarea of tareasUsuarioSeleccionado; track tarea.id){
+
         <li>
-            <app-tarea/>
+            <app-tarea />
         </li>
-            <li>
-            <app-tarea/>
-        </li>
-            <li>
-            <app-tarea/>
-        </li>
+        }
     </ul>
 
 
