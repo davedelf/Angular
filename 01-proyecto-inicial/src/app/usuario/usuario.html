@@ -1,6 +1,7 @@
 <div class="div">
-    <button (click)="alSeleccionarUsuario()">
+    <button [class.active]="seleccionado" (click)="alSeleccionarUsuario()">
         <img [src]="rutaImagen" [alt]="usuario.nombre">
         <span>{{usuario.nombre}}</span>
     </button>
 </div>
+

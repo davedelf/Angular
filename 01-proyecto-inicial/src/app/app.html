@@ -5,7 +5,8 @@
         @for(usuario of usuarios;track usuario.id){
         <li>
 
-            <app-usuario [usuario]="usuario" (seleccion)="alSeleccionarUsuario($event)" />
+            <app-usuario [usuario]="usuario" (seleccion)="alSeleccionarUsuario($event)"
+                [seleccionado]="usuario.id===idUsuarioSeleccionado" />
         </li>
 
         }
@@ -14,9 +15,7 @@
 
     @if(usuarioSeleccionado){
 
-    <app-tareas 
-    [idUsuario]="usuarioSeleccionado.id"
-    [nombre]="usuarioSeleccionado.nombre" />
+    <app-tareas [idUsuario]="usuarioSeleccionado.id" [nombre]="usuarioSeleccionado.nombre" />
     }
 
     @else{
