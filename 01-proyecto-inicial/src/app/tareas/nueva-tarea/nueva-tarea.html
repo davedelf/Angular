@@ -1,25 +1,27 @@
 <div class="fondo" (click)="alCancelar()"></div>
 <dialog open>
-  <h2>Agregar Tarea</h2>
-  <form>
-    <p>
-      <label for="titulo">Titulo</label>
-      <input type="text" id="titulo" name="titulo" />
-    </p>
+    <h2>Agregar Tarea</h2>
+    <form>
+        <p>
+            <label for="titulo">Titulo</label>
+            <input type="text" id="titulo" name="titulo" [(ngModel)]="tituloIngresado" />
+            <!--Sintaxis de directiva bidireccional-->
+        </p>
 
-    <p>
-      <label for="resumen">Resumen</label>
-      <textarea id="resumen" rows="5" name="resumen"></textarea>
-    </p>
+        <p>
+            <label for="resumen">Resumen</label>
+            <textarea id="resumen" rows="5" name="resumen" [(ngModel)]="resumenIngresado"></textarea>
+        </p>
 
-    <p>
-      <label for="expira">Fecha Límite</label>
-      <input type="date" id="expira" name="expira" />
-    </p>
+        <p>
+            <label for="expira">Fecha Límite</label>
+            <input type="date" id="expira" name="expira" [(ngModel)]="fechaIngresada" />
+            <!--Directiva ngModel retorna string, no date, por eso lo configuramos como string-->
+        </p>
 
-    <p class="acciones">
-      <button type="button"(click)="alCancelar()">Cancelar</button>
-      <button type="submit">Crear</button>
-    </p>
-  </form>
+        <p class="acciones">
+            <button type="button" (click)="alCancelar()">Cancelar</button>
+            <button type="submit">Crear</button>
+        </p>
+    </form>
 </dialog>
