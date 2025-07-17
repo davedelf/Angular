@@ -15,7 +15,7 @@
         @for(tarea of tareasUsuarioSeleccionado; track tarea.id){
 
         <li>
-            <app-tarea [tarea]="tarea"/>
+            <app-tarea [tarea]="tarea" (terminada)="alCompletarTarea($event)"/>
         </li>
         }
     </ul>
