@@ -43,11 +43,9 @@ export class Tareas {
     this.estaAgregandoTareaNueva = true;
   }
 
-  alCancelarTareaNueva() {
+  alCerrarTareaNueva() {
     this.estaAgregandoTareaNueva = false;
   }
 
-  alAgregarTarea(infoDeTarea: NuevaTareaInfo) {
-    this.estaAgregandoTareaNueva = false;
-  }
+
 }

@@ -1,5 +1,5 @@
 @if(estaAgregandoTareaNueva){
-<app-nueva-tarea (cancelar)="alCancelarTareaNueva()" (agregar)="alAgregarTarea($event)"/>
+<app-nueva-tarea [idUsuario]="idUsuario" (cerrar)="alCerrarTareaNueva()" />
 
 }
 
