@@ -37,7 +37,6 @@ export class Tareas {
     return this.tareasService.obtenerTareasDeUsuario(this.idUsuario);
   }
 
-  alCompletarTarea(id: string) {}
 
   alIniciarNuevaTarea() {
     this.estaAgregandoTareaNueva = true;
