@@ -1,13 +1,15 @@
 import { Component, EventEmitter, Input,Output } from '@angular/core';
 import { Tarea } from './tarea.model';
 import { Tarjeta } from "../compartida/tarjeta/tarjeta";
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-tarea',
   standalone: true,
+  imports:[Tarjeta,DatePipe],
   templateUrl: './tarea.html',
   styleUrl: './tarea.css',
-  imports: [Tarjeta],
+
 })
 export class TareaComponent {
   @Input({ required: true }) tarea!: Tarea;
