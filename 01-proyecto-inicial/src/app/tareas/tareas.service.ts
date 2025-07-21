@@ -1,6 +1,13 @@
+import { Injectable } from '@angular/core';
 import { type NuevaTareaInfo } from '../tarea/tarea.model';
 
-class TareasService {
+@Injectable({
+  providedIn: 'root',
+})
+
+/* Con ese decorador y esa sitnaxis indicamos que el servicio es accesible
+y puede ser inyectado a nivel root - en toda la app.-p */
+export class TareasService {
   private tareas = [
     {
       id: 't1',
@@ -31,7 +38,7 @@ class TareasService {
     return this.tareas.filter((tarea) => tarea.idUsuario == idUsuario);
   }
 
-  agregarTarea(infoDeTarea: NuevaTareaInfo, idUsuario:string) {
+  agregarTarea(infoDeTarea: NuevaTareaInfo, idUsuario: string) {
     this.tareas.unshift({
       id: new Date().getTime().toString(),
       titulo: infoDeTarea.titulo,
@@ -41,7 +48,7 @@ class TareasService {
     });
   }
 
-  eliminarTarea(id:string){
-     this.tareas = this.tareas.filter((tarea) => tarea.id !== id);
+  eliminarTarea(id: string) {
+    this.tareas = this.tareas.filter((tarea) => tarea.id !== id);
   }
 }

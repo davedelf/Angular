@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TareaComponent } from '../tarea/tarea';
 import { NuevaTarea } from './nueva-tarea/nueva-tarea';
 import { type NuevaTareaInfo } from '../tarea/tarea.model';
+import { TareasService } from './tareas.service';
 
 @Component({
   selector: 'app-tareas',
@@ -15,14 +16,28 @@ export class Tareas {
   @Input({ required: true }) nombre!: string;
   estaAgregandoTareaNueva = false;
 
+  private tareasService: TareasService;
+
+  constructor(_tareasService: TareasService) {
+    this.tareasService = _tareasService;
+  }
+
+  /* Atajo para la inyección de dependencias (funciona igual al tradicional de arriba):
+
+    constructor(private tareasService:TareasService){
+
+    }
+
+    añadimos el modificador private al frente del parámetro, entocnes Ángular creará una propiedad con ese mismo
+    nombre y realizará la inyección del servicio.
+  
+  */
 
   get tareasUsuarioSeleccionado() {
-    return this.tareas.filter((tarea) => tarea.idUsuario == this.idUsuario);
+    return this.tareasService.obtenerTareasDeUsuario(this.idUsuario);
   }
 
-  alCompletarTarea(id: string) {
-    this.tareas = this.tareas.filter((tarea) => tarea.id !== id);
-  }
+  alCompletarTarea(id: string) {}
 
   alIniciarNuevaTarea() {
     this.estaAgregandoTareaNueva = true;
@@ -33,7 +48,6 @@ export class Tareas {
   }
 
   alAgregarTarea(infoDeTarea: NuevaTareaInfo) {
-
     this.estaAgregandoTareaNueva = false;
   }
 }
