@@ -16,7 +16,7 @@ import { TareasService } from '../tareas.service';
   templateUrl: './nueva-tarea.html',
   styleUrl: './nueva-tarea.css',
 })
-export class NuevaTarea {
+export class NuevaTareaComponent {
   @Input({ required: true }) idUsuario!: string;
   @Output() cerrar = new EventEmitter<void>();
   tituloIngresado = '';

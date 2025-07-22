@@ -1,19 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { EncabezadoComponent } from './encabezado/encabezado.component';
-import { UsuarioComponent } from './usuario/usuario';
 import { USUARIOS_FALSOS } from './usuarios-falsos';
-import { Tareas } from './tareas/tareas';
-
-
 
 @Component({
   selector: 'app-root',
-  imports: [EncabezadoComponent, UsuarioComponent, Tareas],
+  standalone: false,
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
+export class AppComponent {
   protected title = '01-proyecto-inicial';
   usuarios = USUARIOS_FALSOS;
   idUsuarioSeleccionado!: string;

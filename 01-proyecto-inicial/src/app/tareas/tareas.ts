@@ -1,17 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { TareaComponent } from '../tarea/tarea';
-import { NuevaTarea } from './nueva-tarea/nueva-tarea';
+import { NuevaTareaComponent } from './nueva-tarea/nueva-tarea';
 import { type NuevaTareaInfo } from '../tarea/tarea.model';
 import { TareasService } from './tareas.service';
 
 @Component({
   selector: 'app-tareas',
   standalone: true,
-  imports: [TareaComponent, NuevaTarea],
+  imports: [TareaComponent, NuevaTareaComponent],
   templateUrl: './tareas.html',
   styleUrl: './tareas.css',
 })
-export class Tareas {
+export class TareasComponent {
   @Input({ required: true }) idUsuario!: string;
   @Input({ required: true }) nombre!: string;
   estaAgregandoTareaNueva = false;
