@@ -1,13 +1,10 @@
 import { Component, inject, Input } from '@angular/core';
 import { Tarea } from './tarea.model';
-import { TarjetaComponent } from '../compartida/tarjeta/tarjeta';
-import { DatePipe } from '@angular/common';
 import { TareasService } from '../tareas/tareas.service';
 
 @Component({
   selector: 'app-tarea',
-  standalone: true,
-  imports: [TarjetaComponent, DatePipe],
+  standalone: false,
   templateUrl: './tarea.html',
   styleUrl: './tarea.css',
 })

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-tarjeta',
-  imports: [],
+  standalone:false,
   templateUrl: './tarjeta.html',
   styleUrl: './tarjeta.css'
 })
