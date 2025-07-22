@@ -1,26 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app';
-import { TareasComponent } from './tareas/tareas';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { UsuarioComponent } from './usuario/usuario';
-import { TareaComponent } from './tarea/tarea';
-import { NuevaTareaComponent } from './tareas/nueva-tarea/nueva-tarea';
 import { CompartidaModule } from './compartida/compartida.module';
+import { TareasModule } from './tareas/tareas.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     EncabezadoComponent,
     UsuarioComponent,
-    TareasComponent,
-    TareaComponent,
-    NuevaTareaComponent,
+
   ] /* declarations:[] para componentes standalone:false */,
   bootstrap: [AppComponent],
-  imports: [BrowserModule,FormsModule,CompartidaModule],
+  imports: [BrowserModule,CompartidaModule,TareasModule],
   /* imports:[] para componentes standalone:true, aunque también para otros módulos - ej.: BrowserModule - */
 })
 export class AppModule {}
