@@ -6,9 +6,9 @@ import { AppComponent } from './app';
 import { TareasComponent } from './tareas/tareas';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { UsuarioComponent } from './usuario/usuario';
-import { TarjetaComponent } from './compartida/tarjeta/tarjeta';
 import { TareaComponent } from './tarea/tarea';
 import { NuevaTareaComponent } from './tareas/nueva-tarea/nueva-tarea';
+import { CompartidaModule } from './compartida/compartida.module';
 
 @NgModule({
   declarations: [
@@ -16,12 +16,11 @@ import { NuevaTareaComponent } from './tareas/nueva-tarea/nueva-tarea';
     EncabezadoComponent,
     UsuarioComponent,
     TareasComponent,
-    TarjetaComponent,
     TareaComponent,
     NuevaTareaComponent,
   ] /* declarations:[] para componentes standalone:false */,
   bootstrap: [AppComponent],
-  imports: [BrowserModule,FormsModule],
+  imports: [BrowserModule,FormsModule,CompartidaModule],
   /* imports:[] para componentes standalone:true, aunque también para otros módulos - ej.: BrowserModule - */
 })
 export class AppModule {}
