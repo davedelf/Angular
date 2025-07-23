@@ -1,1 +1,36 @@
-<p>ingreso-usuario works!</p>
+<form (ngSubmit)="alEnviar()">
+    <div class="grupo-entrada">
+        <p>
+            <label for="inversion-inicial">
+                Inversión Inicial
+            </label>
+            <input id="inversion-inicial" name="inversion-inicial" type="number"
+                [(ngModel)]="inversionInicialIngresada" />
+        </p>
+        <p>
+            <label for="inversion-anual">
+                Inversión Anual
+            </label>
+            <input id="inversion-anual" name="inversion-anual" type="number" [(ngModel)]="inversionAnualIngresada" />
+        </p>
+    </div>
+    <div class="grupo-entrada">
+        <p>
+            <label for="rendimiento-espereado">
+                Tasa de Retorno Esperada
+            </label>
+            <input id="rendimiento-espereado" name="rendimiento-espereado" type="number"
+                [(ngModel)]="rendimientoEsperadoIngresado" />
+        </p>
+        <p>
+            <label for="duracion">
+                Duración
+            </label>
+            <input id="duracion" type="number" name="duracion" [(ngModel)]="duracionIngresada" />
+        </p>
+    </div>
+
+    <p>
+        <button>Calcular</button>
+    </p>
+</form>

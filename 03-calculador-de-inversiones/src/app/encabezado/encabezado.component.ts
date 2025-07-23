@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './encabezado.component.html',
   styleUrl: './encabezado.component.css'
 })
-export class EncabezadoComponent {
+export class Encabezado {
 
 }

@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './resultado-inversion.component.html',
   styleUrl: './resultado-inversion.component.css'
 })
-export class ResultadoInversionComponent {
+export class ResultadoInversion {
 
 }
