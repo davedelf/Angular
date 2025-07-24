@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Encabezado } from './encabezado/encabezado.component';
 import { IngresoUsuario } from './ingreso-usuario/ingreso-usuario.component';
 import { type IngresoInversion } from './ingreso-inversion.model';
@@ -11,14 +11,17 @@ import { ResultadosInversionComponent } from './resultados-inversion/resultados-
   imports: [Encabezado, IngresoUsuario, ResultadosInversionComponent],
 })
 export class AppComponent {
-  infoResultados?: {
-    anio: number;
-    interes: number;
-    valorFinalAnio: number;
-    inversionAnual: number;
-    interesTotal: number;
-    montoTotalInvertido: number;
-  }[];
+  infoResultados = signal<
+    | {
+        anio: number;
+        interes: number;
+        valorFinalAnio: number;
+        inversionAnual: number;
+        interesTotal: number;
+        montoTotalInvertido: number;
+      }[]
+    | undefined
+  >(undefined);
 
   alCalcularResultadosInversion(info: IngresoInversion) {
     const { inversionInicial, inversionAnual, rendimientoEsperado, duracion } =
@@ -41,7 +44,6 @@ export class AppComponent {
         montoTotalInvertido: inversionInicial + inversionAnual * anio,
       });
     }
-
-    this.infoResultados=datosAnuales;
+    this.infoResultados.set(datosAnuales);
   }
 }
