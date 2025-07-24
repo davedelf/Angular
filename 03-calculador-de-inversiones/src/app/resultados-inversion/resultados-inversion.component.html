@@ -1,0 +1,31 @@
+@if(!resultados){
+<p class="centrar">Por favor, ingresa los valores y presiona "Calcular"</p>
+
+}@else{
+<table>
+    <thead>
+        <tr>
+            <th>Año</th>
+            <th>Valor Inversión</th>
+            <th>Interés (año)</th>
+            <th>Interés Total</th>
+            <th>Capital Invertido</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(resultado of resultados; track resultado.anio){
+        <tr>
+            <td>{{resultado.anio}}</td>
+
+            <td>{{resultado.valorFinalAnio}}</td>
+
+            <td>{{resultado.interes}}</td>
+
+            <td>{{resultado.interesTotal}}</td>
+
+            <td>{{resultado.montoTotalInvertido}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
