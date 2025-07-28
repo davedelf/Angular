@@ -1,17 +1,22 @@
 <app-encabezado></app-encabezado>
 
 <main>
-  <div id="dashboard">
-    <div class="dashboard-elemento">
-      <app-estado-servidor></app-estado-servidor>
-    </div>
 
-    <div class="dashboard-elemento">
-      <app-trafico></app-trafico>
-    </div>
+  <app-dashboard-elemento [imagen]="{src:'estado.png',alt:'Un simbolo de estado'}" titulo="Estado del Servidor">
 
-    <div class="dashboard-elemento">
-      <app-registros></app-registros>
-    </div>
-  </div>
+    <app-estado-servidor></app-estado-servidor>
+
+  </app-dashboard-elemento>
+
+  <app-dashboard-elemento [imagen]="{src:'globo.png',alt:'Un globo'}" titulo="Tráfico">
+
+    <app-trafico></app-trafico>
+
+  </app-dashboard-elemento>
+
+  <app-dashboard-elemento [imagen]="{src:'lista.png',alt:'Una lista de elementos'}" titulo="Registros de Soporte">
+
+    <app-registros></app-registros>
+  </app-dashboard-elemento>
+
 </main>
