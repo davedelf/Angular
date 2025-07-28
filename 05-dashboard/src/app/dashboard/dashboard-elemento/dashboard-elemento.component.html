@@ -4,6 +4,6 @@
             <img [src]="imagen().src" [alt]="imagen().alt" />
             <h2>{{titulo()}}</h2>
         </header>
-        
+        <ng-content></ng-content> <!-- Con esto indicamos que acá debe renderizar las imágenes y el contenido - Proyección de contenido -->
     </article>
 </div>
