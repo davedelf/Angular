@@ -1,6 +1,10 @@
 <span>
-    Salir
+    <ng-content></ng-content>
 </span>
-<span class="icono">
-    →
-</span>
+
+<ng-content select=".icono"></ng-content>
+
+<!-- Como son varios ng-content, lo que hacemos es diferenciarlos con la propiedad select, de esa forma
+ Angular sabe donde debe realizar la proyección del contenido.
+ 
+ Notar que para los selectores, en general, usamos los de CSS -->
