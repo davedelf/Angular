@@ -2,9 +2,17 @@
     <ng-content></ng-content>
 </span>
 
-<ng-content select=".icono"></ng-content>
+<span class="icono">
+    <ng-content select="icono"></ng-content>
+</span>
+
 
 <!-- Como son varios ng-content, lo que hacemos es diferenciarlos con la propiedad select, de esa forma
  Angular sabe donde debe realizar la proyección del contenido.
  
  Notar que para los selectores, en general, usamos los de CSS -->
+
+
+<!-- "Proyeccion de contenido avanzada con ngProjectAs. Evitamos tener duplicidad de elementos en el DOM, 
+ de esta forma evitamos tener dos span por cada elemento button, o de otra forma dicho, 
+ tener una division innecesaria" -->
