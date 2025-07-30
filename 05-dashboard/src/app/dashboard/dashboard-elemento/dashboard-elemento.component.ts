@@ -6,9 +6,11 @@ import { Component, input, Input } from '@angular/core';
   imports: [],
   templateUrl: './dashboard-elemento.component.html',
   styleUrl: './dashboard-elemento.component.css',
+  /*   host: {
+    class: 'dashboard-elemento',
+  }, */
 })
 export class DashboardElementoComponent {
-
   /* Usando decoradores */
   /*   @Input({ required: true }) imagen!: {
     src: string;
