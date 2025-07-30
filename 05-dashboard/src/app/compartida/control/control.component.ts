@@ -1,13 +1,13 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
   standalone: true,
   imports: [],
   templateUrl: './control.component.html',
-  styleUrl: './control.component.css'
+  styleUrl: './control.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class ControlComponent {
-
-  etiqueta=input.required<string>();
+  etiqueta = input.required<string>();
 }
