@@ -12,7 +12,7 @@ export class BotonComponent {}
 /* Selectores
 
   Son muy versatiles, podemos seleccionar elementos individuales, en grupo, aquellos que sean de un determinado
-  tipo, que compartan ciertos atrivutos o clase, entre otras cosas.
+  tipo, que compartan ciertos atributos o clase, entre otras cosas.
   
   Lo que hace es "activar" el componente y que éste tome control sobre el elemento que contiene ese selector
   Ej:
