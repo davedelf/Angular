@@ -1,7 +1,9 @@
 import {
   Component,
+  ElementRef,
   HostBinding,
   HostListener,
+  inject,
   input,
   ViewEncapsulation,
 } from '@angular/core';
@@ -25,8 +27,10 @@ export class ControlComponent {
   /*   @HostBinding('class') nombreClase =
     'control'; /* HostBinding agrega nombreClase como una propiedad del host. Es similar a host:{} */
   etiqueta = input.required<string>();
+
+  private el=inject(ElementRef)
   alClickear() {
     console.log('clickeado');
+    console.log(this.el);
   }
 }
-
