@@ -8,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrl: './estado-servidor.component.css',
 })
 export class EstadoServidorComponent {
-  estadoActual = 'online';
+  estadoActual: 'online' | 'offline' | 'unknown' = 'unknown';
+  constructor() {
+    setInterval(() => {
+      const rnd = Math.random();
+      if (rnd > 0.5) {
+        this.estadoActual = 'online';
+      } else if (rnd > 0.1) {
+        this.estadoActual = 'offline';
+      } else {
+        this.estadoActual = 'unknown';
+      }
+    }, 3000);
+  }
 }
