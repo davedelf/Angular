@@ -2,6 +2,6 @@
 
 <div id="grafico">
   @for (puntoInformacion of informacionTraficoFalsa; track puntoInformacion.id) {
-  <div [style.height]="(puntoInformacion.valor / traficoMaximo) * 100 + '%'"></div>
+  <div [style.height]="(puntoInformacion.valor / traficoMaximo) * 100 + '%'"></div> <!-- Vinculación de estilos -->
   }
 </div>
