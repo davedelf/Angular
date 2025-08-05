@@ -1,6 +1,6 @@
-<form>
+<form (ngSubmit)="alEnviar(tituloIngresado)">
   <app-control etiqueta="Titulo">
-    <input name="titulo" id="titulo" />
+    <input name="titulo" id="titulo" #tituloIngresado/>
   </app-control>
 
   <app-control etiqueta="Pedido">
