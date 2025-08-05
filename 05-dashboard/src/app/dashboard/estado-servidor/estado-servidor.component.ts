@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-estado-servidor',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './estado-servidor.component.html',
   styleUrl: './estado-servidor.component.css',
 })
-export class EstadoServidorComponent {
+export class EstadoServidorComponent implements OnInit {
   estadoActual: 'online' | 'offline' | 'unknown' = 'unknown';
   ngOnInit() {
     setInterval(() => {
