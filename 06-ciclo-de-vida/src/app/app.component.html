@@ -1,0 +1,12 @@
+<div id="botones">
+  <button (click)="alAlternarVisibilidadCicloDeVida()">
+    Alternar Visibilidad del Componente Ciclodevida
+  </button>
+  <button (click)="alCambiarTextoCicloDeVida()">
+    Cambiar el Texto del Componente Ciclodevida
+  </button>
+</div>
+
+@if (componenteCicloDeVidaEsVisible) {
+  <app-ciclodevida [texto]="textoCicloDeVida" />
+}
