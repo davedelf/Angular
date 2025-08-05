@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class EstadoServidorComponent {
   estadoActual: 'online' | 'offline' | 'unknown' = 'unknown';
-  constructor() {
+  ngOnInit() {
     setInterval(() => {
       const rnd = Math.random();
       if (rnd > 0.5) {
@@ -21,4 +21,5 @@ export class EstadoServidorComponent {
       }
     }, 3000);
   }
+  constructor() {}
 }
