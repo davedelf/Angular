@@ -1,6 +1,6 @@
 <form (ngSubmit)="alEnviar(tituloIngresado.value,textoIngresado.value)">
   <app-control etiqueta="Titulo">
-    <input name="titulo" id="titulo" #tituloIngresado/>
+    <input name="titulo" id="titulo" #tituloIngresado />
   </app-control>
 
   <app-control etiqueta="Pedido">
@@ -14,3 +14,7 @@
     </button>
   </p>
 </form>
+
+<!-- Las variables de plantilla son utiles y versatiles. Si colocamos una variable sobre un input nos almacena un HTMLElementInput,
+ pero si colocamos una variable sobre un componente, entocnes nos almacena la instancia de ese componente, no el 
+ HTMLElement, por lo que podemos acceder a los atributos de ese componente a traves de la variable de plantilla - # - -->
