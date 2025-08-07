@@ -11,7 +11,7 @@ export class EstadoServidorComponent implements OnInit {
   estadoActual: 'online' | 'offline' | 'unknown' = 'unknown';
   private destroyRef = inject(DestroyRef);
   ngOnInit() {
-    console.log('INIT');
+/*  */
     const intervalo = setInterval(() => {
       const rnd = Math.random();
       if (rnd > 0.5) {

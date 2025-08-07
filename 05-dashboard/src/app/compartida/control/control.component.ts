@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   Component,
   contentChild,
   ContentChild,
@@ -23,7 +24,18 @@ import {
   },
 }) /* Esto es similar a colocar el atributo class="control" cuando creamos el componete app-control en nuevo-registro html,
 solo que ésto se lo da por defecto, entonces siempre tendrá ese atributo y no es necesario especificarlo en cada componente */
-export class ControlComponent {
+export class ControlComponent implements AfterContentInit {
+  private control =
+    contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+  /*   @ContentChild('input')
+    private control?: ElementRef<
+      HTMLInputElement | HTMLTextAreaElement
+    >;  */
+
+  ngAfterContentInit() {
+
+
+  }
   /*   @HostListener('click')
 
   /*   @HostBinding('class') nombreClase =
@@ -31,13 +43,6 @@ export class ControlComponent {
   etiqueta = input.required<string>();
 
   private el = inject(ElementRef);
-
-  /*   @ContentChild('input')
-  private control?: ElementRef<
-    HTMLInputElement | HTMLTextAreaElement
-  >;  */
-  private control =
-    contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
 
   alClickear() {
     console.log('clickeado');

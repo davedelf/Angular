@@ -1,4 +1,11 @@
-import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  viewChild,
+  ViewChild,
+} from '@angular/core';
 import { BotonComponent } from '../../../compartida/boton/boton.component';
 import { ControlComponent } from '../../../compartida/control/control.component';
 import { FormsModule } from '@angular/forms';
@@ -10,15 +17,26 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './nuevo-registro.component.html',
   styleUrl: './nuevo-registro.component.css',
 })
-export class NuevoRegistroComponent {
-  /*   @ViewChild('miFormulario') private miFormulario?: ElementRef<HTMLFormElement>; */
-  private miFormulario =
-    viewChild.required<ElementRef<HTMLFormElement>>('miFormulario');
+export class NuevoRegistroComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit() {
+    /* Asegura el acceso a los elementos obtenidos mediante ViewChild luego de ser renderizados */
+    console.log('AFTER VIEW INIT');
+    console.log(this.miFormulario?.nativeElement);
+  }
+  ngOnInit() {
+    /* OnInit no garantiza que el elemento ya exista - esté renderizado, en cambio AfterViewInit si (ya se inició-renderizó la vista, por lo que el formulario ya existe) */
+    console.log('ON INIT');
+    console.log(this.miFormulario?.nativeElement);
+  }
+
+    @ViewChild('miFormulario') private miFormulario?: ElementRef<HTMLFormElement>;
+/*   private miFormulario =
+    viewChild.required<ElementRef<HTMLFormElement>>('miFormulario'); */
 
   alEnviar(titulo: string, textoIngresado: string) {
     console.log(titulo);
     console.log(textoIngresado);
-    this.miFormulario().nativeElement.reset();
+    this.miFormulario?.nativeElement.reset();
   }
 }
 
