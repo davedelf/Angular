@@ -1,5 +1,7 @@
 import {
   Component,
+  contentChild,
+  ContentChild,
   ElementRef,
   HostBinding,
   HostListener,
@@ -28,9 +30,18 @@ export class ControlComponent {
     'control'; /* HostBinding agrega nombreClase como una propiedad del host. Es similar a host:{} */
   etiqueta = input.required<string>();
 
-  private el=inject(ElementRef)
+  private el = inject(ElementRef);
+
+  /*   @ContentChild('input')
+  private control?: ElementRef<
+    HTMLInputElement | HTMLTextAreaElement
+  >;  */
+  private control =
+    contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+
   alClickear() {
     console.log('clickeado');
     console.log(this.el);
+    console.log(this.control());
   }
 }

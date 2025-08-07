@@ -1,10 +1,10 @@
 <form (ngSubmit)="alEnviar(tituloIngresado.value,textoIngresado.value)" #miFormulario>
   <app-control etiqueta="Titulo">
-    <input name="titulo" id="titulo" #tituloIngresado />
+    <input name="titulo" id="titulo" #tituloIngresado #input/>
   </app-control>
 
   <app-control etiqueta="Pedido">
-    <textarea name="pedido" id="pedido" rows="3" #textoIngresado></textarea>
+    <textarea name="pedido" id="pedido" rows="3" #textoIngresado #input></textarea>
   </app-control>
 
   <p>

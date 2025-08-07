@@ -23,4 +23,6 @@ export class NuevoRegistroComponent {
 }
 
 /* Usamos nativeElement xq ElementRef es generico y envuelve a HTMLFormElement */
-/* En viewChild podemos usar ? o alternativamente required, pero con eso estamos obligados a que exista el elemento child */
+/* En viewChild podemos usar ? o alternativamente required, pero con eso estamos obligados a que exista el elemento child.
+viewChild sólo está disponible en versiones de Angular >= v17.3 .
+Si necesitamos seleccionar múltiples elementos de la plantilla, usamos ViewChildren*/
