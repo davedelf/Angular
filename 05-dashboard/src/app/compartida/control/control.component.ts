@@ -1,5 +1,7 @@
 import {
   AfterContentInit,
+  afterNextRender,
+  afterRender,
   Component,
   contentChild,
   ContentChild,
@@ -24,7 +26,7 @@ import {
   },
 }) /* Esto es similar a colocar el atributo class="control" cuando creamos el componete app-control en nuevo-registro html,
 solo que ésto se lo da por defecto, entonces siempre tendrá ese atributo y no es necesario especificarlo en cada componente */
-export class ControlComponent implements AfterContentInit {
+export class ControlComponent {
   private control =
     contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
   /*   @ContentChild('input')
@@ -32,10 +34,7 @@ export class ControlComponent implements AfterContentInit {
       HTMLInputElement | HTMLTextAreaElement
     >;  */
 
-  ngAfterContentInit() {
-
-
-  }
+  ngAfterContentInit() {}
   /*   @HostListener('click')
 
   /*   @HostBinding('class') nombreClase =
@@ -44,9 +43,22 @@ export class ControlComponent implements AfterContentInit {
 
   private el = inject(ElementRef);
 
+  constructor() {
+    afterRender(() => {
+      /* Se registra una y otra vez que se registra un cambio  en toda la app*/
+      console.log('AFTER RENDER ');
+    });
+
+    afterNextRender(() => {
+      console.log('AFTER NEXT RENDER');
+    });
+  }
   alClickear() {
     console.log('clickeado');
     console.log(this.el);
     console.log(this.control());
   }
 }
+/* Los otros Hooks - OnInit, etc - se registran en el componente que los contienen, mientras que afterRender y afterNextRender en toda la app.
+afterRender se ejecuta todas las veces que ocurran cambios en la app, y afterNextRender solo se activará en el próximo cambio.
+por lo tanto, estos hooks pueden ser utiles si necesitamos ejecutar algún código cuando suceda algún cambio en la app*/
