@@ -35,6 +35,7 @@ export class EstadoServidorComponent implements OnInit {
   }
   constructor() {
     effect(() => {
+      /* permite ejecutar código cuando el estado del signal cambia */
       console.log(this.estadoActual());
     });
   }
@@ -43,3 +44,23 @@ export class EstadoServidorComponent implements OnInit {
     console.log('AFTER VIEW INIT');
   }
 }
+
+/* 
+Funciones de Limpieza para Signal Effects en Angular
+Cuando trabajes con Signal effects, puede que en algunas ocasiones necesites realizar algún trabajo de limpieza, antes de que la función effect se vuelva a ejecutar (por ejemplo para limpiar un medidor de tiempo, o algo similar).
+
+¡La función effect() de Angular, te permite hacerlo!
+
+Te brinda un hook llamado onCleanup al cual puedes ejecutr como parte de tu función effect para definir qué es lo que debería ocurrir antes de que el código de effect se ejecute la próxima vez:
+
+
+
+effect((onCleanup) => {
+  const tareas = obtenerTareas();
+  const contador = setTimeout(() => {
+    console.log(`Número actual de tareas: ${tareas().length}`);
+  }, 1000);
+  onCleanup(() => {
+    clearTimeout(contador);
+  });
+}); */

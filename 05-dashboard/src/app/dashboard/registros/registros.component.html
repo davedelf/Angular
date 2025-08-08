@@ -1,1 +1,20 @@
-<app-nuevo-registro></app-nuevo-registro>
+<div>
+    <ul>
+        @for(registro of registros;track registro.id){
+        <li>
+            <app-registro /> -{{$count}}
+        </li>
+        }@empty {
+        <p>No hay registros disponibles</p>
+        }
+    </ul>
+</div>
+
+<div id="nuevo-registro">
+    <app-nuevo-registro (agregar)="alAgregar($event)"></app-nuevo-registro>
+</div>
+
+<!-- @for contiene funciones - anotaciones utiles que podemos usar para interactuar con los elementos del array.
+ $first, $even, $odd, $count, etc.
+ 
+ En versiones anteriores se usa ngFor, pero es conveniente usar @for-->

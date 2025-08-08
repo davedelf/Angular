@@ -2,7 +2,10 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   OnInit,
+  output,
+  Output,
   viewChild,
   ViewChild,
 } from '@angular/core';
@@ -18,6 +21,15 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './nuevo-registro.component.css',
 })
 export class NuevoRegistroComponent implements OnInit, AfterViewInit {
+  /*   @Output() agregar = new EventEmitter<{
+    titulo: string;
+    texto: string;
+  }>(); */
+  agregar = output<{
+    titulo: string;
+    texto: string;
+  }>();
+
   ngAfterViewInit() {
     /* Asegura el acceso a los elementos obtenidos mediante ViewChild luego de ser renderizados */
     console.log('AFTER VIEW INIT');
@@ -29,13 +41,12 @@ export class NuevoRegistroComponent implements OnInit, AfterViewInit {
     console.log(this.miFormulario?.nativeElement);
   }
 
-    @ViewChild('miFormulario') private miFormulario?: ElementRef<HTMLFormElement>;
-/*   private miFormulario =
+  @ViewChild('miFormulario') private miFormulario?: ElementRef<HTMLFormElement>;
+  /*   private miFormulario =
     viewChild.required<ElementRef<HTMLFormElement>>('miFormulario'); */
 
-  alEnviar(titulo: string, textoIngresado: string) {
-    console.log(titulo);
-    console.log(textoIngresado);
+  alEnviar(titulo: string, textoRegistro: string) {
+    this.agregar.emit({titulo:titulo,texto:textoRegistro});
     this.miFormulario?.nativeElement.reset();
   }
 }
