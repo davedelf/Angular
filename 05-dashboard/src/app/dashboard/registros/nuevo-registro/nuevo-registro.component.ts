@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  input,
   OnInit,
   output,
   Output,
@@ -30,6 +31,9 @@ export class NuevoRegistroComponent implements OnInit, AfterViewInit {
     texto: string;
   }>();
 
+  tituloIngresado = '';
+  textoIngresado = '';
+
   ngAfterViewInit() {
     /* Asegura el acceso a los elementos obtenidos mediante ViewChild luego de ser renderizados */
     console.log('AFTER VIEW INIT');
@@ -45,9 +49,14 @@ export class NuevoRegistroComponent implements OnInit, AfterViewInit {
   /*   private miFormulario =
     viewChild.required<ElementRef<HTMLFormElement>>('miFormulario'); */
 
-  alEnviar(titulo: string, textoRegistro: string) {
-    this.agregar.emit({titulo:titulo,texto:textoRegistro});
-    this.miFormulario?.nativeElement.reset();
+  alEnviar() {
+    this.agregar.emit({
+      titulo: this.tituloIngresado,
+      texto: this.textoIngresado,
+    });
+    this.tituloIngresado = '';
+    this.textoIngresado = '';
+    /*  this.miFormulario?.nativeElement.reset(); */
   }
 }
 
