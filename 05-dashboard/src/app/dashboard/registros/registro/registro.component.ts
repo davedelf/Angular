@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { NuevoRegistroComponent } from '../nuevo-registro/nuevo-registro.component';
 import { Registro } from '../registros.model';
 
@@ -12,9 +12,14 @@ import { Registro } from '../registros.model';
 export class RegistroComponent {
   informacion = input.required<Registro>();
   detallesVisibles = signal(false);
+  cerrado = output();
 
   alAlternarDetalles() {
     this.detallesVisibles.update((eraVisible) => !eraVisible);
+  }
+
+  alMarcarComoCompletado() {
+    this.cerrado.emit(); /* Solamente informa que ocurrió un evento, por eso no recibe ningún parámetro */
   }
 }
 /* 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NuevoRegistroComponent } from './nuevo-registro/nuevo-registro.component';
 import { Registro } from './registros.model';
-import { RegistroComponent } from "./registro/registro.component";
+import { RegistroComponent } from './registro/registro.component';
 
 @Component({
   selector: 'app-registros',
@@ -21,5 +21,14 @@ export class RegistrosComponent {
       estado: 'abierto',
     };
     this.registros.push(registro);
+  }
+
+  alCerrarRegistro(id: string) {
+    this.registros = this.registros.map((registro) => {
+      if (registro.id === id) {
+        return { ...registro, estado: 'cerrado' };
+      }
+      return registro;
+    });
   }
 }

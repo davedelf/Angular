@@ -2,7 +2,7 @@
     <ul>
         @for(registro of registros;track registro.id){
         <li>
-            <app-registro [informacion]="registro"/> -{{$count}}
+            <app-registro [informacion]="registro" (cerrado)="alCerrarRegistro(registro.id)"/>
         </li>
         }@empty {
         <p>No hay registros disponibles</p>

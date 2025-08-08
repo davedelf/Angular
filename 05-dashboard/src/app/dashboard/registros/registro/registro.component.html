@@ -1,8 +1,8 @@
 <article>
   <h3>
     <div [class]="{
-        'registro-abierto': true,
-        'registro-cerrado': false
+        'registro-abierto': informacion().estado==='abierto',
+        'registro-cerrado': informacion().estado==='cerrado',
       }"></div>
     <button (click)="alAlternarDetalles()">
       <span class="texto">{{informacion().titulo}}</span>
@@ -28,6 +28,6 @@
   <p>{{informacion().textoPedido}}</p>
 
   @if (informacion().estado==='abierto') {
-  <p><button>Marcar como completado</button></p>
+  <p><button (click)="alMarcarComoCompletado()">Marcar como completado</button></p>
   } }
 </article>
