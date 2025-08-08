@@ -1,0 +1,11 @@
+<div id="inputs">
+  <p>
+    <label>Ancho</label>
+    <input type="number" step="1.0" [(ngModel)]="tamanioRectangulo.ancho" />
+  </p>
+  <p>
+    <label>Alto</label>
+    <input type="number" step="1.0" [(ngModel)]="tamanioRectangulo.alto" />
+  </p>
+</div>
+<app-rectangulo [(tamanio)]="tamanioRectangulo" />
