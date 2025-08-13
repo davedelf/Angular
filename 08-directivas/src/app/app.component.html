@@ -11,5 +11,12 @@
   } -->
   <!--   <p *ngIf="esAdmin()">Solo los administradores verán esto</p>  Directiva Estructural (vieja, deprecada pero funciona)-->
 
-  <p appAutenticacion="admin">Solo los administradores verán esto</p>
+  <ng-template appAutenticacion="admin">
+    <p>Solo los administradores verán esto</p>
+  </ng-template>
 </main>
+
+<!-- ng-template encapsula los elementos del DOM, pero en primera instancia esos elementos no se renderizan.
+ Se renderizan cuando es necesario, en este caso, la directiva estructural decide cuando renderizar y mostrar el contenido
+ de ng-template. (Lo vemos en la plantilla pero no renderizado.)
+ Cabe destacar que ng-template puede tener más de un elemento contenido, no solamente un parrafo. -->

@@ -1,4 +1,11 @@
-import { Directive, effect, inject, input } from '@angular/core';
+import {
+  Directive,
+  effect,
+  inject,
+  input,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 import { Permiso } from './autenticacion.model';
 import { AutenticacionService } from './autenticacion.service';
 
@@ -7,17 +14,24 @@ import { AutenticacionService } from './autenticacion.service';
   standalone: true,
 })
 export class AutenticacionDirective {
-  tipoDeUsuario = input.required<Permiso>({alias:'appAutenticacion'});
+  tipoDeUsuario = input.required<Permiso>({ alias: 'appAutenticacion' });
   private autenticacionService = inject(AutenticacionService);
-
+  private templateRef =
+    inject(
+      TemplateRef
+    ); /* Con esto tenemos acceso  al contenido de la plantilla */
+  private viewCiontainerRef =
+    inject(
+      ViewContainerRef
+    ); /* Con esto acceso a la plantilla del DOM que implementa la directiva */
 
   constructor() {
-    effect(()=>{
-      if(this.autenticacionService.permisoActivo()==this.tipoDeUsuario()){
-        console.log("Mostrar elemento");
-      }else{
-        console.log("No mostrar el elemento");
+    effect(() => {
+      if (this.autenticacionService.permisoActivo() == this.tipoDeUsuario()) {
+        this.viewCiontainerRef.createEmbeddedView(this.templateRef);
+      } else {
+        this.viewCiontainerRef.clear();
       }
-    })
+    });
   }
 }
