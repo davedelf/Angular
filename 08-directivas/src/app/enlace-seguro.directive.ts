@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, input, Input } from '@angular/core';
 
 @Directive({
   selector: 'a[appEnlaceSeguro]',
@@ -8,16 +8,20 @@ import { Directive } from '@angular/core';
   },
 })
 export class EnlaceSeguroDirective {
+  parametroConsulta = input('miapp',{alias:'appEnlaceSeguro'});
   constructor() {
     console.log('La directiva del enlace seguro está activa');
   }
 
-  alConfirmarSalirPagina(event: MouseEvent) {
+  alConfirmarSalirPagina(evento: MouseEvent) {
     const quiereSalir = window.confirm('¿Quieres salir de la aplicación?');
     if (quiereSalir === true) {
+      const direccion = (evento.target as HTMLAnchorElement).href;
+      (evento.target as HTMLAnchorElement).href =
+        direccion + '?from=' + this.parametroConsulta();
       return;
     }
 
-    event.preventDefault();
+    evento.preventDefault();
   }
 }
