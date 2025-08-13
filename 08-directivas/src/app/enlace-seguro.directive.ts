@@ -1,4 +1,5 @@
 import { Directive, ElementRef, inject, input, Input } from '@angular/core';
+import { MonitorDirective } from './monitor.directive';
 
 @Directive({
   selector: 'a[appEnlaceSeguro]',
@@ -6,6 +7,7 @@ import { Directive, ElementRef, inject, input, Input } from '@angular/core';
   host: {
     '(click)': 'alConfirmarSalirPagina($event)',
   },
+  hostDirectives:[MonitorDirective]
 })
 export class EnlaceSeguroDirective {
   parametroConsulta = input('miapp', { alias: 'appEnlaceSeguro' });

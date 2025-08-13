@@ -14,7 +14,7 @@
   <!--   <ng-template appAutenticacion="admin">
     <p>Solo los administradores verán esto</p>
   </ng-template> -->
-  <p *appAutenticacion="'admin'" class="contenido-protegido admin">Solo los administradores verán esto</p>
+  <p *appAutenticacion="'admin'" appMonitor class="contenido-protegido admin">Solo los administradores verán esto</p>
   <p *appAutenticacion="'usuario'" class="autenticado">Los usuarios regulares verán esto</p>
   <p *appAutenticacion="'invitado'" class="no-autenticado">Los invitados verán esto</p>
 </main>

@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AutenticacionService } from './autenticacion.service';
+import { MonitorDirective } from '../monitor.directive';
 
 @Component({
   selector: 'app-autenticacion',
@@ -9,6 +10,7 @@ import { AutenticacionService } from './autenticacion.service';
   imports: [FormsModule],
   templateUrl: './autenticacion.component.html',
   styleUrl: './autenticacion.component.css',
+  hostDirectives: [MonitorDirective],
 })
 export class AutenticacionComponent {
   email = signal('');
