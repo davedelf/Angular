@@ -22,6 +22,9 @@ export class AppComponent {
     25, 37, 19, -4, 28, 21, 19, 28, 33, 31, 9, 11, 5, -12, -5,
   ];
 
+  constructor() {
+    this.temperaturasHistoricas.sort((a, b) => (a > b ? 1 : -1));
+  }
   reiniciarTemperatura(indice: number) {
     this.temperaturasHistoricas[indice] = 18;
     /*    const temperaturasNuevas = [...this.temperaturasHistoricas];
